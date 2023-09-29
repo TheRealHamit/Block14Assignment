@@ -37,7 +37,7 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
 
 /**
@@ -45,7 +45,12 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  let sum = 0;
+  let len = getLength(numbers);
+  for (let i = 0; i < len; i++) {
+    sum += numbers[i];
+  }
+  return sum;
 }
 
 /**
@@ -53,15 +58,22 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  return getSum(numbers) / getLength(numbers);
 }
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the smallest of the numbers
  */
-function getMin(numbers) {
-  // TODO
+function getMin(numbers) { 
+  let min = Number.MAX_VALUE;
+  for (num of numbers) {
+    if (num < min) {
+      min = num;
+    }
+  }
+  return min;
+  // return Math.min(...numbers); // Maybe not what the assignment wants?
 }
 
 /**
@@ -69,7 +81,14 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  let max = Number.MIN_VALUE;
+  for (num of numbers) {
+    if (num > max) {
+      max = num;
+    }
+  }
+  return max;
+  // return Math.max(...numbers); // Maybe not what the assignment wants?
 }
 
 /**
@@ -77,7 +96,7 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  return getMax(numbers) - getMin(numbers);
 }
 
 /**
@@ -85,7 +104,13 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  let evens = [];
+  for (num of numbers) {
+    if (num % 2 != 1) {
+      evens.unshift(num);
+    }
+  }
+  return evens;
 }
 
 /**
@@ -93,5 +118,11 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  let odds = [];
+  for (num of numbers) {
+    if (num % 2 == 1) {
+      odds.unshift(num);
+    }
+  }
+  return odds;
 }
